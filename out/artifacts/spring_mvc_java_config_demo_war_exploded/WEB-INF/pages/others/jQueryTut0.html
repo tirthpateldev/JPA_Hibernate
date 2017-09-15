@@ -1,0 +1,336 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JQuery Tutorial</title>
+
+  <style type="text/css">
+    .highlight {
+      background-color: yellow;
+    }
+  </style>
+
+  <!-- Get the JQuery library
+  Jquery 1 & 2 are the same except JQuery 2 doesn't
+  support IE 6, 7, and 8 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+</head>
+
+<body>
+  <div id="wrapper">
+
+    <h1>Random Stuff</h1>
+
+    <p id="p_one"><img src="ntt-logo.png" id="logo2" alt="NTT Logo" height="180" width="180"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. <em>Aenean pretium</em>, ipsum quis ultrices aliquet, lacus urna ultrices odio, eu interdum tortor tortor quis ligula.
+      <a href="#">Morbi finibus</a> auctor ipsum vel tempus. Nullam gravida leo ac iaculis pretium.
+      <b>In pretium varius nisi</b>, quis tristique ipsum semper vitae. Mauris eu aliquet odio. Pellentesque tristique sem turpis, id gravida nunc consequat vel. <a href="#">Nullam nec condimentum magna</a>. Sed dignissim interdum risus ac mattis. In
+      hac habitasse platea dictumst. Vivamus placerat tristique vestibulum. Pellentesque quis eleifend nisl. Quisque mollis aliquam enim eu ullamcorper.</p>
+    <p id="p_two">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pretium, ipsum quis ultrices aliquet, lacus urna ultrices odio, eu interdum tortor tortor quis ligula.
+      <a href="mailto:derekbanas@verizon.net">Morbi finibus</a> auctor ipsum vel tempus. Nullam gravida leo ac iaculis pretium. In pretium varius nisi, quis tristique ipsum semper vitae. Mauris eu aliquet odio. Pellentesque tristique sem turpis, id
+      <a href="http://google.com">gravida nunc consequat</a> vel. Nullam nec condimentum magna. Sed dignissim interdum risus ac mattis.
+      <a href="http://www.newthinktank.com/wordpress/PersonalityTest.pdf">In hac habitasse</a> platea dictumst. Vivamus placerat tristique vestibulum. Pellentesque quis eleifend nisl. Quisque mollis aliquam enim eu ullamcorper.</p>
+
+    <p id="p_three">Lorem ipsum dolor sit amet, consectetur adipiscing elit. <i>Aenean pretium,</i> ipsum quis ultrices aliquet, lacus urna ultrices odio, eu interdum tortor tortor quis ligula.</p>
+
+    <table id="tableData">
+      <caption>Baseball</caption>
+      <thead>
+        <tr>
+          <td colspan="4">Best Baseball Players</td>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <td colspan="4">* Hall of Fame</td>
+        </tr>
+      </tfoot>
+      <tbody>
+        <tr>
+          <td></td>
+          <td>Average</td>
+          <td>RBIs</td>
+          <td>Homeruns</td>
+        </tr>
+        <tr>
+          <td><a href="#">Hank Aaron*</a></td>
+          <td>.305</td>
+          <td>2297</td>
+          <td>755</td>
+        </tr>
+        <tr>
+          <td><a href="#">Babe Ruth*</a></td>
+          <td>.342</td>
+          <td>2214</td>
+          <td>714</td>
+        </tr>
+        <tr>
+          <td><a href="#">Barry Bonds</a></td>
+          <td>.298</td>
+          <td>1996</td>
+          <td>762</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2 id="bestSelling">Best Selling Childrens Books</h2>
+
+    <ol id="oListTypes">
+      <li>Harry Potter
+        <ol id="oListIndent">
+          <li>and the Sorcerer's Stone</li>
+          <li>and the Half-Blood Prince</li>
+          <li>and the Chamber of Secrets</li>
+          <li>Prisoner of Azkaban</li>
+          <li name="best_book">and the Goblet of Fire</li>
+          <li>and the Order of the Phoenix</li>
+          <li>and the Deathly Hallows</li>
+        </ol>
+      </li>
+      <li>The Very Hungry Caterpillar</li>
+    </ol>
+
+    <input type="text" id="yourName" size="50">
+
+    <input type="text" id="listStuff" size="50"><br />
+
+    <h2 id="trackEvents">Tracking Events</h2> Mouse Click : X : <input type="text" id="mClickXPos"> Y : <input type="text" id="mClickYPos"><br /> Mouse Move : X : <input type="text" id="mMoveXPos"> Y : <input type="text" id="mMoveYPos"><br /> Key Pressed : <input type="text" id="keyPressed"><br
+    />
+
+    <span id="formEvent">Form Event</span> : <input type="text" id="inputFormEvent"><br /><br />
+
+    <img src="1.jpg" id="accident" alt="accident">
+
+    <div id="jsonData"></div>
+
+    <button type="button" id="getData">Get Data</button>
+
+    <script type="text/javascript">
+      // When the document is ready execute the JQuery
+      $("document").ready(function() {
+
+        // ADDING / REMOVING / CHANGING ELEMENTS
+
+        // You can change CSS attributes like this
+        // # targets ids and . targets classes
+
+        $("#wrapper").css("width", 500);
+        $("#wrapper").css("margin", "auto");
+        $("#logo2").css("float", "left");
+        $("#p_two").css("color", "purple");
+        $("#p_two").css({
+          "background": "url('repeatBkgrnd.png') repeat-y"
+        });
+        $("a").css("color", "red");
+        $("#tableData a").css("color", "green");
+
+        $("em + a").css("color", "orange");
+        $("p  >  em").css("color", "blue");
+        $("#oListIndent li:nth-child(3)").css("color", "red");
+        $("li[name]").html("***'and the Goblet of Fire'***");
+        $("input[type='text']#yourName").val("Dennis");
+        $("a[href*='google']").css("font-weight", "bolder");
+        $("img[alt^='NTT']").css({
+          "border-color": "green",
+          "border-width": "11px",
+          "border-style": "solid",
+        });
+        $("a[href^='http://g']").css("color", "cyan");
+        $("a[href^='mailto:']").css("color", "yellow");
+        $("img[alt^='NTT']").width(150).height(111);
+        $("a[href$='pdf']").css("color", "yellow");
+
+        $("#tableData tr:even").css("background-color", "#d5cf50");
+        $("#tableData tr:odd").css("background-color", "#50d5b5");
+
+        $("#tableData tr:first").css({
+          "background-color": "#ff3600"
+        });
+
+        $("#tableData tr:last").css({
+          "background-color": "#021814",
+          "color": "white"
+        });
+
+        $("#oListTypes li:not(:contains(and))").css("color", "cyan");
+        $("a:contains(gravida)").css("color", "green");
+
+        $("p:has(i)").hide();
+
+        //alert($("p:has(i)").html());
+
+        $("p:has(i)").html("<i>Some normal text</i>").show();
+
+        $("p:has(i)").append("I go at the end ");
+        $("p:has(i)").prepend("begging text --- > ");
+
+        // Add a new element before the targeted one
+        $("p:has(i)").before("<p id='before_p'>A new paragraph before</p>");
+
+        // Add a new element after the targeted one
+        $("p:has(i)").after("<p id='after_p'>A new paragraph after</p>");
+
+        $("#after_p").click(function() {
+          $(this).remove();
+        });
+
+        // Replace an element with another on click
+        $("#before_p").click(function() {
+          $(this).replaceWith('<p>I\'m the new paragraph</p>');
+        });
+
+
+        $("#oListIndent li").each(function(index) {
+
+          // Get the value in the input element
+          var inputListStuff = $("#listStuff").val();
+
+          // Assign a new value to the input element
+          // $(this).text() gets the value for each individual
+          // li element
+          $("#listStuff").val(inputListStuff + ", " + $(this).text());
+
+        });
+
+        $("#oListIndent li").addClass("Harry_Potter");
+
+        $(".Harry_Potter").css("color", "#208dd5");
+
+        $("#oListIndent li").click(function() {
+          $(this).toggleClass("highlight");
+
+          // Get the changing background color and display it
+          // in the input element
+          var bgColor = $(this).css("background-color");
+          $("input[type=text]#yourName").val(bgColor);
+        });
+
+        $("#logo2").click(function() {
+
+          // Get the value stored in an attribute
+          var imgName = $(this).attr("src");
+          $("input[type=text]#yourName").val(imgName);
+
+          // Change the value of an attribute
+          $("#logo2").attr("src", "ntt-logo-horz.png");
+        });
+
+        $("#logo2").mouseover(function() {
+          $("#logo2").attr("src", "ntt-logo-2.png");
+        });
+
+        $("#logo2").mouseout(function() {
+          $("#logo2").attr("src", "ntt-logo.png");
+        });
+
+        $("h2").hover(function() {
+          // mouseover
+          $("h2").css("color", "#208dd5");
+        }, function() {
+          // mouseout
+          $("h2").css("color", "black");
+        });
+
+        $("#logo2").dblclick(function() {
+          $("#logo2").attr("src", "ntt-logo-dc.png");
+        });
+
+        $(document).click(function(e) {
+          $("#mClickXPos").val(e.pageX);
+          $("#mClickYPos").val(e.pageY);
+        });
+
+        $(document).mousemove(function(e) {
+          $("#mMoveXPos").val(e.screenX);
+          $("#mMoveYPos").val(e.screenY);
+        });
+
+
+        $(document).keypress(function(e) {
+          var keyPressed = String.fromCharCode(e.which)
+          $("#keyPressed").val(keyPressed);
+        });
+
+
+        $("#inputFormEvent").blur(function() {
+          $("#formEvent").text("Left Input Element");
+        });
+
+        $("#inputFormEvent").change(function() {
+          $("#formEvent").text("Input Element Changed");
+        });
+
+        $("#inputFormEvent").focus(function() {
+          $("#formEvent").text("Input Element Focused");
+        });
+
+        $("#inputFormEvent").select(function() {
+          $("#formEvent").text("Input Element Selected");
+        });
+
+        // Target td that contains 'Bonds'
+        $("td:contains('Bonds')").click(function() {
+
+          // Hide row that contains a td that contains 'Bonds'
+          $("tr:has(td:contains('Bonds'))").hide(1);
+        });
+
+        // function showWhatTouched(e) {
+        //   alert(e.data.message);
+        // }
+        //
+        // var bsMsg = {
+        //   message: "Best Selling Touched"
+        // };
+        //
+        // var teMsg = {
+        //   message: "Track Events Touched"
+        // };
+        //
+        // $("#bestSelling").on("mouseover", bsMsg, showWhatTouched);
+        //
+        // $("#trackEvents").on("mouseover", teMsg, showWhatTouched);
+        $(function() {
+          var scntDiv = $('#p_scents');
+          var i = $('#p_scents p').size() + 1;
+
+          $('#addScnt').live('click', function() {
+                  $('<p><label for="p_scnts"><input type="text" id="p_scnt" size="20" name="p_scnt_' + i +'" value="" placeholder="Input Value" /></label> <a href="#" id="remScnt">Remove</a></p>').appendTo(scntDiv);
+                  i++;
+                  return false;
+          });
+
+          $('#remScnt').live('click', function() {
+                  if( i > 2 ) {
+                          $(this).parents('p').remove();
+                          i--;
+                  }
+                  return false;
+          });
+  });
+      }); <!-- End of JQuery Code -->
+    </script>
+    <h2><a href="#" id="addScnt">Add Another Input Box</a></h2>
+
+    <div id="p_scents">
+        <p>
+            <label for="p_scnts"><input type="text" id="p_scnt" size="20" name="p_scnt" value="" placeholder="Input Value" /></label>
+        </p>
+    </div>
+
+
+  </div>
+
+
+
+  <!-- End of wrapper -->
+
+  <!-- Most common CSS attributes
+https://developer.mozilla.org/en-US/docs/Web/CSS/Reference
+  background, background-attachment, background-color, background-image, background-repeat, border, border-bottom, border-color, border-style, border-bottom-color, border-bottom-style, border-bottom-width, border-left-color, border-left-style, border-left-width, border-right-color, border-right-style, border-right-width, border-top-color, border-top-style, border-top-width, box-shadow, color, columns, direction, float, font-family, font-size, font-style, font-weight, height, letter-spacing, line-height, list-style-type, list-style-image, list-style-position, margin, margin-bottom, margin-top, margin-right,margin-left, opacity, padding-bottom, padding-top, padding-right, padding-left, text-align, text-decoration, text-decoration-color, text-decoration-line, text-decoration-style, text-indent, text-orientation, text-shadow, text-transform, vertical-align, visibility, width, word-spacing, z-index
+  -->
+</body>
+
+</html>

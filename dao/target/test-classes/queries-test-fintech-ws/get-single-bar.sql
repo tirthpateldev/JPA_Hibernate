@@ -1,0 +1,1 @@
+SELECT * FROM market_data where instId_fk = 'AAPL@NASDAQ' and md_id = 1;
