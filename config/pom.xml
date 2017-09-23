@@ -31,12 +31,7 @@
             <artifactId>service</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>com.gjj</groupId>
-            <artifactId>spring-mvc-java-config-demo</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
+        
         <!-- logging, slf4j -->
         <dependency>
             <groupId>org.slf4j</groupId>

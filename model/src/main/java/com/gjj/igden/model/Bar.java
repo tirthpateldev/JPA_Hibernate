@@ -26,7 +26,11 @@ public class Bar extends MarketData implements InterfaceOHLCData {
   protected long volume;
   protected String logInfo;
 
-  public Bar() {
+  public void setLogInfo(String logInfo) {
+	this.logInfo = logInfo;
+}
+
+public Bar() {
   }
 
   public Bar(int dataSetId) {
